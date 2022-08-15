@@ -30,7 +30,7 @@ export function ListItem(props) {
     return () => {
       document.removeEventListener('keypress', onEnterPress)
     }
-  }, [])
+  }, [onEnterPress])
 
   return (
     <>
