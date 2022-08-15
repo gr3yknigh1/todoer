@@ -10,9 +10,7 @@ function AddListItemBtn(props) {
 }
 
 export function List() {
-  const [labels, setLabels] = useState(
-    ["Buy milk", "Review pool request", "Clean dishes"]
-  )
+  const [labels, setLabels] = useState([])
 
   const elements = labels.map((label, index) => {
     return <ListItem label={label} key={index} />;
