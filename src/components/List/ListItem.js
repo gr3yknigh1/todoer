@@ -41,7 +41,7 @@ export function ListItem(props) {
           onChange={onCheckboxChange} />
         {
           isInserting ?
-            <input type="text" onChange={onInputChange} value={label}></input> :
+            <input className="labelInput" type="text" onChange={onInputChange} value={label}></input> :
             <span className="text" onClick={onLabelClick}>
               {isChecked ? <s>{label}</s> : label}
             </span>

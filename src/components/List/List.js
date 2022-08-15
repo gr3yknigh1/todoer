@@ -19,7 +19,7 @@ export function List() {
   });
 
   const onAddButtonClick = useCallback(() => {
-    setLabels([...labels, ""])
+    setLabels([...labels, "new task"])
   }, [setLabels, labels])
 
   return (

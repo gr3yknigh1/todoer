@@ -11,6 +11,13 @@ h1.text {
     list-style: " ";
 }
 
+.labelInput {
+    font-size: 30px;
+    border-width: 4px;
+    border-radius: 10px;
+    border-color: rgb(207, 191, 191);
+}
+
 .checkbox {
     transform: scale(4);
     margin: 30px;
