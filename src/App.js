@@ -1,14 +1,8 @@
-import "./App.css"
-import List from "./components/List"
 
-
-function App() {
+export default function App() {
   return (
-    <div>
-      <h1 className="text">To do</h1>
-      <List/>
-    </div>
+    <main id="app">
+      <h1>todoer</h1>
+    </main>
   );
 }
-
-export default App;
