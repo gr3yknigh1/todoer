@@ -5,7 +5,9 @@ const todosSlice = createSlice({
   name: "todos",
   initialState: {
     items: [
-      createTodo("hi", false)
+      createTodo("Wash dishes", false),
+      createTodo("Make dinner", false),
+      createTodo("Make blowjob", true)
     ]
   },
   reducers: {
