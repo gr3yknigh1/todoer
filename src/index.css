@@ -1,3 +1,51 @@
 :root {
   font-family: "Roboto Mono";
 }
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+
+  padding-inline-start: 0px;
+  padding-left: 10px;
+
+  width: 250px;
+}
+
+.todo-list-item {
+  display: flex;
+  flex-direction: row;
+
+  margin: 8px;
+
+  display: flex;
+  list-style: none;
+}
+
+.todo-list-item:hover {
+  background-color: gainsboro;
+}
+
+.todo-remove-button {
+  margin-left: 20px;
+}
+
+.todo-name {
+  width: 150px;
+
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+.todo-checkbox {
+  margin-right: 15px;
+  width: 20px;
+}
+
+.todo-name::-webkit-scrollbar-track {
+  color: red;
+}
+
+input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+}

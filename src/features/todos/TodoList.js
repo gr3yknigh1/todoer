@@ -15,7 +15,7 @@ export default function TodoList() {
   });
 
   return (
-    <ul>
+    <ul className="todo-list">
       { elements }
     </ul>
   );
