@@ -38,7 +38,6 @@ const todosSlice = createSlice({
     },
     setTodoName: (state, action) => {
       const { id, newName } = action.payload;
-      console.log(action.payload)
 
       let todoIndex = null;
       for (let index = 0; index < state.items.length; index++) {

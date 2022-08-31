@@ -28,10 +28,15 @@ function TodoListNameInput({ name, id }) {
 
   return (
     <form
+      className="todo-name-container"
       onSubmit={ onInputSubmit }
+      onKeyDown= { (event) => {
+        if (event.key === "Escape") {
+          dispatch(setEditingTodo(null));
+        }
+       } }
     >
       <input
-        className="todo-name"
         value={ inputValue }
         type="text"
         onChange={ onInputChange }
@@ -39,6 +44,16 @@ function TodoListNameInput({ name, id }) {
       </input>
     </form>
   )
+}
+
+function TodoListNameLabel({ name }) {
+  return (
+    <span
+      className="todo-name-container"
+    >
+      { name }
+    </span>
+  );
 }
 
 export default function TodoListItem({ id, index, name, isDone }) {
@@ -59,19 +74,9 @@ export default function TodoListItem({ id, index, name, isDone }) {
   }, [dispatch, id]);
 
 
-  let todoName = null;
-  if (isEditing) {
-    todoName = <TodoListNameInput name={ name } id={ id } />
-  }
-  else {
-    todoName = (
-      <span
-        className="todo-name"
-      >
-        { name }
-      </span>
-    );
-  }
+  const todoNameContainer = isEditing ?
+    <TodoListNameInput name={name} id={id} /> :
+    <TodoListNameLabel name={name} />;
 
   return (
     <li
@@ -85,7 +90,7 @@ export default function TodoListItem({ id, index, name, isDone }) {
         onClick={ onCheckboxClick }
         >
       </input>
-      { todoName }
+      { todoNameContainer }
       <button className="todo-remove-button" onClick={ onMenuButtonClick }>x</button>
     </li>
   );

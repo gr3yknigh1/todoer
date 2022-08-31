@@ -30,7 +30,7 @@
   margin-left: 20px;
 }
 
-.todo-name {
+.todo-name-container {
   width: 150px;
 
   overflow:hidden;
