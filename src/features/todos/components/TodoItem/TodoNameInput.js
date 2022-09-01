@@ -2,7 +2,7 @@ import { useCallback, useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { setTodoName, setEditingTodo} from "../../todosSlice";
-import { TodoListItemContext } from "./TodoListItemContext";
+import { TodoListItemContext } from "./TodoItemContext";
 
 
 export default function TodoListNameInput({ name, id}) {

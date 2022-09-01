@@ -6,10 +6,10 @@ import {
   toggleTodo,
 } from "../../todosSlice";
 
-import TodoListItemContextProvider from "./TodoListItemContext";
+import TodoListItemContextProvider from "./TodoItemContext";
 
-import TodoListNameInput from "./TodoListNameInput";
-import TodoListNameLabel from "./TodoListNameLabel";
+import TodoListNameInput from "./TodoNameInput";
+import TodoListNameLabel from "./TodoNameLabel";
 
 
 export default function TodoListItem({ id, index, name, isDone }) {

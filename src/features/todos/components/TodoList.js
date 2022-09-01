@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import TodoListItem from "./TodoListItem/TodoListItem";
+import TodoItem from "./TodoItem/TodoItem";
 
 export default function TodoList() {
   const todoItems = useSelector(state => state.todos.items);
   const elements = todoItems.map((todo, index) => {
-    return <TodoListItem
+    return <TodoItem
       name={ todo.name }
       key={ todo.id }
       id = { todo.id }
