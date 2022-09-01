@@ -1,5 +1,5 @@
-import TodoList from "./TodoList";
-import TodoForm from "./TodoForm";
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 import createTodo from "./createTodo";
 

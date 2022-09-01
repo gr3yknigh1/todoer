@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
-import createTodo from "./createTodo";
+import createTodo from "../createTodo";
 
-import { pushTodo } from "./todosSlice";
+import { pushTodo } from "../todosSlice";
 
 
 export default function TodoForm() {
