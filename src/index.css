@@ -8,6 +8,12 @@
 
   padding-inline-start: 0px;
   padding-left: 10px;
+.light-theme {
+  --color1: #f4f2f3;
+  --color2: #c0a9bd;
+  --color3: #94a7ae;
+  --color4: #64766a;
+}
 
   width: 250px;
 }
