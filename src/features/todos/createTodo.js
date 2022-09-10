@@ -1,7 +1,5 @@
-
-let idCounter = 0;
+import { v4 } from 'uuid';
 
 export default function createTodo(name, isDone) {
-  idCounter++;
-  return { name, isDone, id: idCounter };
+  return { name, isDone, id: v4() };
 }
