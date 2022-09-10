@@ -1,5 +1,5 @@
-:root {
-  font-family: "Roboto Mono";
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .todo-list {
