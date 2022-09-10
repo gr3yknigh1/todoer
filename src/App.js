@@ -2,10 +2,16 @@ import { TodoForm, TodoList } from "./features/todos";
 
 export default function App() {
   return (
-    <main id="app">
-      <h1>todoer</h1>
-      <TodoForm />
-      <TodoList />
-    </main>
+    <div className="app">
+      <header>
+        <h1 className="app__header">todoer</h1>
+      </header>
+      <main className="app__content">
+        <TodoForm />
+        <TodoList />
+      </main>
+      <footer className="app__footer">
+      </footer>
+    </div>
   );
 }
