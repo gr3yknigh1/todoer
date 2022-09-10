@@ -12,7 +12,7 @@ export default function TodoListNameLabel({ name, id }) {
 
   return (
     <span
-      className="todo-name-container"
+      className="todo__name-container"
       onClick={ editThisTodo }
     >
       {name}

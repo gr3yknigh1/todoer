@@ -11,26 +11,36 @@ export default function TodoForm() {
 
   const onInputSubmit = (event) => {
     event.preventDefault();
+    if (name === "") {
+      return;
+    }
     dispatch(pushTodo(
       createTodo(name, false)
     ));
     setName("");
   };
 
+  //TODO(gr3yknigh1): Switch to `onBlur`
   const onInputChange = (event) => {
     event.preventDefault();
     setName(event.target.value);
   };
 
   return (
-    <form>
+    <form className="app__form">
       <input
+        className="from__input"
         type="text"
         onSubmit={ onInputSubmit }
         onChange={ onInputChange }
         value={ name }>
       </input>
-      <button onClick={ onInputSubmit }>Add task</button>
+      <button
+        className="from__button"
+        onClick={ onInputSubmit }
+      >
+        Add task
+      </button>
     </form>
   )
 }

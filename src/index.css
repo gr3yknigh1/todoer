@@ -2,12 +2,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.todo-list {
-  display: flex;
-  flex-direction: column;
+/* *:hover {
+  outline: rgb(154, 194, 80) dashed 1px;
+} */
 
-  padding-inline-start: 0px;
-  padding-left: 10px;
 .light-theme {
   --color1: #f4f2f3;
   --color2: #c0a9bd;
@@ -15,43 +13,84 @@
   --color4: #64766a;
 }
 
+html {
+  background-color: var(--color1);
+}
+
+.app-container {}
+
+
+.app {
+  margin: auto;
+  justify-content: center;
+  width: 300px;
+}
+
+.app__header {
+  text-align: center;
+}
+
+.app__content {}
+.app_footer   {}
+
+.app__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.app__list {
+
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0px;
+
   width: 250px;
 }
 
-.todo-list-item {
-  display: flex;
-  flex-direction: row;
 
-  margin: 8px;
 
-  display: flex;
-  list-style: none;
+.from__input {
+  width: 100%;
 }
 
-.todo-list-item:hover {
+.from__button {
+  width: 100px;
+}
+
+
+
+.todo {
+  display: flex;
+  width: 100%;
+
+  margin-top: 15px;
+
+  transition: all 0.2s ease-in;
+}
+
+.todo:hover {
   background-color: gainsboro;
+  transform: scale(1.1);
 }
 
-.todo-remove-button {
-  margin-left: 20px;
+.todo__checkbox {
+  width: 30px;
 }
 
-.todo-name-container {
-  width: 150px;
+.todo__checkbox:checked + .todo__name-container {
+  text-decoration: line-through;
+}
 
-  overflow:hidden;
+.todo__name-container {
+  width: 100%;
+
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.todo-checkbox {
-  margin-right: 15px;
-  width: 20px;
-}
+.todo__name-container--editing {}
 
-.todo-name::-webkit-scrollbar-track {
-  color: red;
-}
-
-input[type="checkbox"]:checked + span {
-  text-decoration: line-through;
-}
+.todo__remove-button {}

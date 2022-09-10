@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { setTodoName, setEditingTodo} from "../../todosSlice";
@@ -8,6 +8,15 @@ export default function TodoListNameInput({ name, id}) {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState(name);
 
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, [])
+
+  const onInputBlur = useCallback(() => {
+    dispatch(setEditingTodo(null));
+  }, [dispatch]);
 
   const onInputSubmit = useCallback((event) => {
     event.preventDefault();
@@ -24,18 +33,15 @@ export default function TodoListNameInput({ name, id}) {
 
   return (
     <form
-      className="todo-name-container"
+      className="todo__name-container"
       onSubmit={onInputSubmit}
-      onKeyDown={(event) => {
-        if (event.key === "Escape") {
-          dispatch(setEditingTodo(null));
-        }
-      }}
     >
       <input
+        ref={inputRef}
         value={inputValue}
         type="text"
         onChange={onInputChange}
+        onBlur={onInputBlur}
       >
       </input>
     </form>
