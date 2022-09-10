@@ -6,8 +6,6 @@ import {
   toggleTodo,
 } from "../../todosSlice";
 
-import TodoListItemContextProvider from "./TodoItemContext";
-
 import TodoListNameInput from "./TodoNameInput";
 import TodoListNameLabel from "./TodoNameLabel";
 
@@ -26,25 +24,24 @@ export default function TodoListItem({ id, index, name, isDone }) {
     dispatch(toggleTodo(id));
   }, [dispatch, id]);
 
+
   const todoNameContainer = isEditing ?
     <TodoListNameInput name={ name } id={ id } /> :
     <TodoListNameLabel name={ name } id={ id } />;
 
   return (
-    <TodoListItemContextProvider>
-      <li
-        className="todo-list-item"
-      >
-        <input
-          className="todo-checkbox"
-          type="checkbox"
-          defaultChecked={ isDone }
-          onClick={ toggleThisTodo }
-          >
-        </input>
-        { todoNameContainer }
-        <button className="todo-remove-button" onClick={ removeThisTodo }>x</button>
-      </li>
-    </TodoListItemContextProvider>
+    <li
+      className="todo"
+    >
+      <input
+        className="todo__checkbox"
+        type="checkbox"
+        defaultChecked={ isDone }
+        onClick={ toggleThisTodo }
+        >
+      </input>
+      { todoNameContainer }
+      <button className="todo__remove-button" onClick={ removeThisTodo }>x</button>
+    </li>
   );
 }

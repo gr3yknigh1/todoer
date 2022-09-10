@@ -2,15 +2,12 @@ import { useCallback, useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { setTodoName, setEditingTodo} from "../../todosSlice";
-import { TodoListItemContext } from "./TodoItemContext";
 
 
 export default function TodoListNameInput({ name, id}) {
   const dispatch = useDispatch();
-  const context = useContext(TodoListItemContext);
   const [inputValue, setInputValue] = useState(name);
 
-  console.log(context)
 
   const onInputSubmit = useCallback((event) => {
     event.preventDefault();
