@@ -1,14 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 import createTodo from "./createTodo";
 
+function loadItemsFromDatabase() {
+  // NOTE(gr3yknigh1): Mock data
+  return [
+    createTodo("Wash dishes", false),
+    createTodo("Make dinner", false),
+    createTodo("Make blowjob", true)
+  ]
+}
+
 const todosSlice = createSlice({
   name: "todos",
   initialState: {
     editingTodo: null,
     items: [
-      createTodo("Wash dishes", false),
-      createTodo("Make dinner", false),
-      createTodo("Make blowjob", true)
+      ...loadItemsFromDatabase()
     ]
   },
   reducers: {
