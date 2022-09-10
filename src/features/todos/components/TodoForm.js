@@ -6,38 +6,40 @@ import { pushTodo } from "../todosSlice";
 
 
 export default function TodoForm() {
-  const [name, setName] = useState("");
+  const [inputName, setInputName] = useState("");
   const dispatch = useDispatch();
 
   const onInputSubmit = (event) => {
     event.preventDefault();
-    if (name === "") {
+    if (inputName === "") {
       return;
     }
     dispatch(pushTodo(
-      createTodo(name, false)
+      createTodo(inputName, false)
     ));
-    setName("");
+    setInputName("");
   };
 
   //TODO(gr3yknigh1): Switch to `onBlur`
   const onInputChange = (event) => {
     event.preventDefault();
-    setName(event.target.value);
+    setInputName(event.target.value);
   };
 
   return (
     <form className="app__form">
       <input
-        className="from__input"
+        className="form__input"
         type="text"
         onSubmit={ onInputSubmit }
         onChange={ onInputChange }
-        value={ name }>
+        value={ inputName }
+        >
       </input>
       <button
-        className="from__button"
+        className="form__button"
         onClick={ onInputSubmit }
+        disabled={ !inputName }
       >
         Add task
       </button>

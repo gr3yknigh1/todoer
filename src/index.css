@@ -1,5 +1,9 @@
-* {
+*, input, button {
   font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 16px;
+
+  box-sizing: border-box;
 }
 
 /* *:hover {
@@ -7,14 +11,44 @@
 } */
 
 .light-theme {
-  --color1: #f4f2f3;
-  --color2: #c0a9bd;
-  --color3: #94a7ae;
-  --color4: #64766a;
+  --background-0: #22577aff;
+  --background-1: rgb(44, 103, 143);
+  --foreground: rgb(235, 235, 235);
+  --accent: #80ed99ff;
+  --cadet-blue: #38a3a5ff;
+  --ocean-green: #57cc99ff;
+  --www: #c7f9ccff;
 }
 
 html {
-  background-color: var(--color1);
+  background-color: var(--background-0);
+  color: var(--foreground);
+
+  --border-radius: 5px;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  position: fixed;
+  transform: scale(0);
+}
+
+input[type="text"] {
+  font-size: 1em;
+}
+
+button {
+  background-color: var(--ocean-green);
+  border: none;
+  border-radius: 5px;
+  color: rgb(68, 43, 43);
+
+  transition: all 0.1s linear;
+}
+
+button:hover {
+  background-color: var(--accent);
+  cursor: pointer;
 }
 
 .app-container {}
@@ -28,10 +62,11 @@ html {
 
 .app__header {
   text-align: center;
+  font-size: 4em;
 }
 
 .app__content {}
-.app_footer   {}
+.app_footer {}
 
 .app__form {
   display: flex;
@@ -52,14 +87,32 @@ html {
 
 
 
-.from__input {
+.form__input {
   width: 100%;
+  padding: 0px;
+  padding-left: 5px;
+  border-radius: var(--border-radius) 0px 0px var(--border-radius);
+
+  background-color: var(--cadet-blue);
+
+  transition: all 0.1s linear;
 }
 
-.from__button {
+.form__input:hover {
+
+  background-color: rgb(59, 174, 176);
+}
+
+.form__button {
+  border-radius: 0px var(--border-radius) var(--border-radius) 0px;
   width: 100px;
 }
 
+.form__button:disabled {
+  cursor: not-allowed;
+
+  background-color: gray;
+}
 
 
 .todo {
@@ -72,25 +125,55 @@ html {
 }
 
 .todo:hover {
-  background-color: gainsboro;
+  background-color: var(--background-1);
   transform: scale(1.1);
 }
 
 .todo__checkbox {
   width: 30px;
+  cursor: pointer;
 }
 
-.todo__checkbox:checked + .todo__name-container {
+.todo--done .todo__checkbox .checkbox__icon {
+}
+
+.checkbox__icon {
+  background-image: url("./assets/Checkbox.svg");
+  width: 1em;
+  height: 1em;
+}
+
+.checkbox__icon:hover{
+  transform: rotate(180deg) scale(5);
+  transition: transform 1s linear;
+}
+
+
+.todo--done .todo__name-container,
+.todo--done .todo__name-container input[type="text"] {
   text-decoration: line-through;
 }
 
 .todo__name-container {
   width: 100%;
+  margin-right: 5px;
 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  font-size: 1em;
 }
 
-.todo__name-container--editing {}
+.todo__name-container--editing > input {
+  background-color: rgb(52, 121, 167);
+}
 
 .todo__remove-button {}
+
+
+.form__input,
+.todo__name-container--editing > input {
+  border-width: 0px;
+  outline: none;
+  color: var(--foreground);
+}

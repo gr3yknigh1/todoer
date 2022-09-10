@@ -33,7 +33,7 @@ export default function TodoListNameInput({ name, id}) {
 
   return (
     <form
-      className="todo__name-container"
+      className="todo__name-container todo__name-container--editing"
       onSubmit={onInputSubmit}
     >
       <input
