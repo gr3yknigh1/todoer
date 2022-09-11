@@ -51,7 +51,7 @@ export default function TodoListItem({ id, index, name, isDone }) {
         <input
           id={ id }
           type="checkbox"
-          checked={ isDone }
+          defaultChecked={ isDone }
           onClick={ toggleThisTodo }
           >
         </input>

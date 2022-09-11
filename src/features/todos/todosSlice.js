@@ -1,14 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import createTodo from "./createTodo";
+
+function saveObjectToLocalStorage(name, object) {
+  localStorage.setItem(name, JSON.stringify(object));
+}
+
+function loadObjectFromLocalStorage(name) {
+  return JSON.parse(localStorage.getItem(name));
+}
 
 function loadItemsFromDatabase() {
   // NOTE(gr3yknigh1): Mock data
-  return [
-    createTodo("Wash dishes", false),
-    createTodo("Make dinner", false),
-    createTodo("Make blowjob", true)
-  ]
+  const items = loadObjectFromLocalStorage("items");
+  return items ? items : []
 }
+
 
 const todosSlice = createSlice({
   name: "todos",
@@ -21,17 +26,20 @@ const todosSlice = createSlice({
   reducers: {
     pushTodo: (state, action) => {
       state.items.push(action.payload);
+      saveObjectToLocalStorage("items", state.items);
     },
     removeTodo: (state, action) => {
       state.items = state.items.filter(
         todo => todo.id !== action.payload
       );
+      saveObjectToLocalStorage("items", state.items);
     },
     toggleTodo: (state, action) => {
       const targetTodo = state.items.find(
         todo =>  todo.id === action.payload
       );
       targetTodo.isDone = !targetTodo.isDone;
+      saveObjectToLocalStorage("items", state.items);
     },
     setEditingTodo: (state, action) => {
       if (!action.payload) {
@@ -57,6 +65,7 @@ const todosSlice = createSlice({
       }
 
       state.items[todoIndex].name = newName;
+      saveObjectToLocalStorage("items", state.items);
     }
   }
 });
