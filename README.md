@@ -1,3 +1,3 @@
 # todoer
 
-primitive todo app
+Primitive todo app
