@@ -1,4 +1,6 @@
-import { TodoForm, TodoList } from "./features/todos";
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
+
 
 export default function App() {
   return (
